@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="template.xhtml">
+	<ui:define name="CadastroEleitor">
+    <h:form>
+    	
+    	<p:panelGrid columns="1">
+    	<h:outputText value="Cadastro eleitor:"/>
+        <label> Nome: 
+        	<p:inputText id="nome" type="text" value="${eleitorBean.eleitor.nome}" required="true" label="nome">
+        	</p:inputText>
+        	<p:message for="nome" display="icon" />
+        </label>
+        <label> Senha: 
+        	<p:inputText id="senha" type="password" value="${eleitorBean.eleitor.senha}" required="true" label="password">
+        	</p:inputText>
+        	<p:message for="senha" display="icon" />
+        </label>
+        <label> Endereço: 	
+        	<p:inputText id="end" type="text" value="${eleitorBean.eleitor.end}" required="true" label="end">
+        	</p:inputText>
+        	<p:message for="end" display="icon" />
+        </label>
+        <label> CPF: 
+        	<p:inputText id="CPF" type="text" value="${eleitorBean.eleitor.CPF}" required="true" label="CPF">
+        	</p:inputText>
+        	<p:message for="CPF" display="icon" />
+        </label>
+        <label> Titulo: 
+        	<p:inputText id="titulo" type="text" value="${eleitorBean.eleitor.titulo}" required="true" label="titulo">
+        	</p:inputText>
+        	<p:message for="titulo" display="icon" />
+        </label>
+        <label> RG: 
+        	<p:inputText id="rg" type="text" value="${eleitorBean.eleitor.RG}" required="true" label="rg">
+        	</p:inputText>
+        	<p:message for="rg" display="icon" />
+        </label>
+        <p:commandButton id="cadastrar" action="${eleitorBean.adicionar()}" value="Cadastrar" ajax="false" icon="ui-icon-star"/>
+        </p:panelGrid>
+    </h:form>
+    </ui:define>
+    <ui:define name="CadastroCandidato">
+    <h:form>
+    	<p:panelGrid columns="1">
+    	<h:outputText value="Cadastro candidato:"/>
+        <label> Nome: 
+        	<p:inputText id="nome" type="text" value="${candidatoBean.candidato.nome}" required="true" label="nome">
+        	</p:inputText>
+        	<p:message for="nome" display="icon" />
+        </label>
+        <label> Senha: 
+        	<p:inputText id="senha" type="password" value="${candidatoBean.candidato.senha}" required="true" label="password">
+        	</p:inputText>
+        	<p:message for="senha" display="icon" />
+        </label>
+        <label> Endereço: 
+        	<p:inputText id="end" type="text" value="${candidatoBean.candidato.end}" required="true" label="end">
+        	</p:inputText>
+        	<p:message for="end" display="icon" />
+        </label>
+        <label> CPF: 
+        	<p:inputText id="CPF" type="text" value="${candidatoBean.candidato.CPF}" required="true" label="CPF">
+        	</p:inputText>
+        	<p:message for="CPF" display="icon" />
+        </label>
+        <label> Titulo: 
+        	<p:inputText id="titulo" type="text" value="${candidatoBean.candidato.titulo}" required="true" label="titulo">
+        	</p:inputText>
+        	<p:message for="titulo" display="icon" />
+        </label>
+        <label> RG: 
+        	<p:inputText id="rg" type="text" value="${candidatoBean.candidato.RG}" required="true" label="rg">
+        	</p:inputText>
+        	<p:message for="rg" display="icon" />
+        </label>
+         <label> Número: 
+        	<p:inputText id="num" type="text" value="${candidatoBean.candidato.num}" required="true" label="num">
+        	</p:inputText>
+        	<p:message for="num" display="icon" />
+        </label>
+        <p:commandButton id="cadastrar" action="${candidatoBean.adicionar()}" value="Cadastrar" ajax="false" icon="ui-icon-star"/>
+        </p:panelGrid>
+    </h:form>
+    </ui:define>
+    <ui:define name="login">
+    	<h:form>
+    		<p:messages id="messages" />
+    		<p:panelGrid columns="1">
+    		<h:outputText value="Login:" />
+    			<label>
+    				Nome:
+    				<p:inputText id="nome" value="${loginBean.pessoa.nome}"/>
+    				<p:message for="nome" display="icon" />
+    			</label>
+    			<label>Senha:
+    				<p:inputText type="password" id="senha" value="${loginBean.pessoa.senha}" />
+    				<p:message for="senha" display="icon" />
+    			</label>
+    			<p:commandButton value="Login" icon="ui-icon-star" action="${loginBean.envia()}" ajax="false"/>
+    		</p:panelGrid>
+    	</h:form>
+    
+    </ui:define>
+    
+    
+</ui:composition>

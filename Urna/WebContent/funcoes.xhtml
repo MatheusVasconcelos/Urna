@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="logado.xhtml">
+
+<ui:define name="voto">
+    	<h:form>
+    		<p:messages id="messages" />
+    		<p:panelGrid columns="1">
+    		<label>
+    			Digite o número do candidato:
+    			<p:inputText id="voto" value="${votoBean.voto.num}"/>
+    			<p:message for="voto" display="icon" />
+    		</label>
+    		<p:commandButton value="Votar" icon="ui-icon-star" action="${votoBean.votar()}" ajax="false"/>
+    		<p:commandButton value="Votar branco" icon="ui-icon-star" action="${votoBean.votoBranco()}" ajax="false" />
+    		<p:commandButton value="Votar Nulo" icon="ui-iconstar" action="${votoBean.votoNulo()}" ajax="false" />
+    		</p:panelGrid>
+    	</h:form>
+    </ui:define>
+    <ui:define name="maisVotado">
+    	<h:form>
+    		<p:panelGrid columns="2">
+    			<p:outputLabel value="Mais votado: "/>
+    			<h:outputLabel value="${votoBean.maisVotado()}"/>
+    		</p:panelGrid>
+    	</h:form>
+    </ui:define>
+    <ui:define name="cabecalho">
+    	<h:form>
+    		<p:panelGrid columns="2">
+    			<p:outputLabel value="Menos votado: "/>
+    			<h:outputLabel value="${votoBean.menosVotado()}"/>
+    		</p:panelGrid>
+    	</h:form>
+    </ui:define>
+    <ui:define name="votosBrancos">
+    	<h:form>
+    		<p:panelGrid columns="2">
+    			<p:outputLabel value="Quantidade de votos brancos:"/>
+    			<h:outputLabel value="${votoBean.votosBrancos()}"/>
+    		</p:panelGrid>
+    	</h:form>
+    </ui:define>
+    <ui:define name="votosNulos">
+    	<h:form>
+    		<p:panelGrid columns="2">
+    			<p:outputLabel value="Quantidade de votos nulos:"/>
+    			<h:outputLabel value="${votoBean.votosNulos()}"/>
+    		</p:panelGrid>
+    	</h:form>
+    </ui:define>
+    <ui:define name="listar">
+    	<h:dataTable value="${votoBean.lista}" var="item">
+    		<h:column>
+    			<f:facet name="header">
+    				<p:panelGrid columns="1">
+    				<h:outputText value="Lista dos candidatos:"/>
+    				</p:panelGrid>
+    			</f:facet>
+    				<p:panelGrid columns="3">
+    				<h:outputText value="${item.nome}" display="icon"/>
+    				<h:outputText value="${item.num}" display="icon"/>
+    				<h:outputText value="${item.total}" display="icon"/>
+    				</p:panelGrid>
+    		</h:column>
+    	</h:dataTable>
+    </ui:define>
+    <ui:define name="segundoTurno">
+    	<h:dataTable value="${votoBean.getSegundoTurno()}" var="item">
+    		<h:column>
+    			<f:facet name="header">
+    				<p:panelGrid columns="1">
+    				<h:outputText value="Lista dos candidatos do segundo turno:"/>
+    				</p:panelGrid>
+    			</f:facet>
+    				<p:panelGrid columns="2">
+    				<h:outputText value="${item.nome}" display="icon"/>
+    				</p:panelGrid>
+    		</h:column>
+    	</h:dataTable>
+    </ui:define>
+    <ui:define name="eleitores">
+    	<p:panelGrid columns="1">
+    		<p:outputLabel value="Quantidade de eleitores: " />
+    		<h:outputLabel value="${votoBean.eleitores()}"/>
+    	</p:panelGrid>
+    </ui:define>
+      <ui:define name="candidatoEleito">
+    	<p:panelGrid columns="1">
+    		<p:outputLabel value="Candidato eleito: " />
+    		<h:outputLabel value="${votoBean.candidatoEleito(voto)}"/>
+    	</p:panelGrid>
+      </ui:define>
+</ui:composition>

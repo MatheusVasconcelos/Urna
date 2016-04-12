@@ -1,0 +1,75 @@
+@CHARSET "ISO-8859-1";
+
+#login{
+	position: absolute;
+	top: 100px;
+	left: 30px;
+}
+
+#cadastroEleitor{
+	position: absolute;
+	left: 400px;
+	top: 100px;
+}
+
+#cadastroCandidato{
+	position: absolute;
+	left: 800px;
+	top: 100px;
+}
+
+#voto{
+	position: absolute;
+	top: 100px;
+	left: 50px;
+}
+
+#maisVotado{
+	position: absolute;
+	top: 100px;
+	left: 350px;
+}
+
+#menosVotado{
+	position: absolute;
+	top: 130px;
+	left: 350px;
+}
+
+#votosBrancos{
+	position: absolute;
+	top: 160px;
+	left: 350px;
+}
+
+#votosNulos{
+	position: absolute;
+	top: 190px;
+	left: 350px;	
+}
+
+#listar{
+	position: absolute;
+	top: 100px;
+	left: 700px;
+}
+
+
+
+#candidatoEleito{
+	position: absolute;
+	top: 100px;
+	left: 1000px;
+}
+
+#eleitores{
+	position: absolute;
+	top: 400px;
+	left: 50px;
+}
+
+#segundoTurno{
+	position: absolute;
+	top: 180px;
+	left: 1000px;
+}
